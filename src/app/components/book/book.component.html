@@ -1,15 +1,15 @@
 <div class="card">
   <img
-    src="{{ book != undefined ? book : 'assets/images/capa-indisponivel.png'}}"
+    src="{{ book.thumbnail ?? 'assets/images/capa-indisponivel.png'}}"
     alt="Capa do book">
   <div class="card-info">
-    <p class="title">{{ book }}</p>
+    <p class="title">{{ book.title ? (book.title | bookInfo) : "[Desconhecido]" }}</p>
     <p class="info">Autoria:</p>
-    <p class="result">{{ book }}</p>
+    <p class="result">{{ book.authors ? (book.authors[0] | bookInfo) : "[Desconhecido]" }}</p>
     <p class="info">Data de publicação:</p>
-    <p class="result">{{ book }}</p>
+    <p class="result">{{ book.publishedDate ? (book.publishedDate | date: "dd/MM/YYYY") : "[Desconhecido]" }}</p>
     <p class="info">Editora:</p>
-    <p class="result">{{ book }}</p>
+    <p class="result">{{ book.publisher ? (book.publisher | bookInfo) : "[Desconhecido]" }}</p>
     <button (click)="onModalChange(true)">Mais detalhes</button>
   </div>
 </div>

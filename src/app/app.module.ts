@@ -11,6 +11,7 @@ import { BookListComponent } from './views/book-list/book-list.component';
 import { BookModalComponent } from './views/modal-book/modal-book.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import { BookInfoPipe } from './pipes/book-info.pipe';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { HttpClientModule } from '@angular/common/http';
     FooterComponent,
     BookComponent,
     BookListComponent,
-    BookModalComponent
+    BookModalComponent,
+    BookInfoPipe
   ],
   imports: [
     BrowserModule,

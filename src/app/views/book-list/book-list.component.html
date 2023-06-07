@@ -3,13 +3,20 @@
   <div class="search">
     <input
       type="search"
+      [formControl]="searchBar"
     >
     <button>
       <img src="assets/images/icone-busca.png" alt="Lupa de cor roxa">
     </button>
   </div>
   <p>Busque por assunto, autoria, nome...</p>
-<div class="container-card" *ngIf="bookList?.length > 0, else initialScreen">
+  <div class="results error-message" *ngIf="errorMessage">
+    {{ errorMessage }}
+  </div>
+  <div class="results" *ngIf="totalBooksFound$ | async as totalBooks">
+    {{ totalBooks }} de livros encontrados
+  </div>
+<div class="container-card" *ngIf="booksFound$ | async as bookList, else initialScreen">
   <div *ngFor="let book of bookList">
     <app-book [book]="book"></app-book>
   </div>

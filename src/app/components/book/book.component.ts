@@ -1,4 +1,5 @@
 import { Component, Input } from '@angular/core';
+import { Book } from 'src/app/models/book.interface';
 
 @Component({
   selector: 'app-book',
@@ -7,7 +8,7 @@ import { Component, Input } from '@angular/core';
 })
 export class BookComponent {
 
-  @Input() book: Object;
+  @Input() book: Book;
   openModal: boolean;
 
   onModalChange(event: boolean) {
